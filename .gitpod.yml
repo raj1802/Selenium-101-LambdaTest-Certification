@@ -1,0 +1,24 @@
+
+image: gitpod/workspace-java-maven:latest
+
+# 2. Define tasks to run when the workspace starts:
+# The 'init' task sets up the project by downloading dependencies.
+# The 'command' task guides the user on how to run tests.
+tasks:
+  - name: Setup Java Project
+    init: |
+      echo "Setting up Java project for LambdaTest Selenium execution..."
+      # Build the Maven project to download all Java dependencies (Selenium, TestNG)
+      mvn clean install
+      echo "Project setup complete. Dependencies downloaded."
+    command: |
+      echo "Workspace ready. To run your LambdaTest Selenium tests, use:"
+      echo "mvn test -DsuiteXmlFile=testng.xml" # Assuming your TestNG XML is named 'testng.xml'
+      # Optionally, open the TestNG XML file for convenience
+      gp open testng.xml # Adjust 'testng.xml' if your file has a different name
+
+# 3. Configure VS Code extensions for a better development experience:
+vscode:
+  extensions:
+    - redhat.java          # Essential for Java development
+    - vscjava.vscode-maven # Good for Maven project understanding
