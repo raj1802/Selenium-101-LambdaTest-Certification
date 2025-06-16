@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>Selenium-101-LambdaTest-Certification</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - Selenium-101-LambdaTest-Certification</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <apache.httpcomponents.core.version>4.4.4</apache.httpcomponents.core.version>
+    <apache.httpcomponents.client.version>4.5.2</apache.httpcomponents.client.version>
+    <testng.version>7.6.0</testng.version>
+    <commons-lang.version>2.6</commons-lang.version>
+    <super-csv.version>2.4.0</super-csv.version>
+    <jsoup.version>1.10.1</jsoup.version>
+    <rest-assured.version>2.9.0</rest-assured.version>
+    <opencsv.version>2.3</opencsv.version>
+    <json.version>20160810</json.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <version.commons-io>2.7</version.commons-io>
+
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-grid</artifactId>
+      <version>4.11.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.11.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+
+    </dependency>
+
+
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>all-tests</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.3</version>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.19</version>
+            <configuration>
+              <suiteXmlFiles>	<!-- Specify the TestNG XML file you want to run over here -->
+                <!-- 								<suiteXmlFile>src/test/java/chapter5/testng.xml</suiteXmlFile> -->
+                <suiteXmlFile>src/test/java/chapter6/chapter6_testng.xml</suiteXmlFile>
+              </suiteXmlFiles>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+
+</project>
+
+
